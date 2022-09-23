@@ -5,6 +5,13 @@ const buildEslintCommand = (filenames) =>
     .map((f) => path.relative(process.cwd(), f))
     .join(" --file ")}`;
 
+const prettierWriteCommand = (filenames) =>
+  `prettier --write ${filenames.join(" ")}`;
+
 module.exports = {
-  "*.{js,jsx,ts,tsx}": [buildEslintCommand],
+  "**/*.{js,jsx,ts,tsx}": [
+    buildEslintCommand,
+    () => "tsc --noEmit",
+    prettierWriteCommand,
+  ],
 };
