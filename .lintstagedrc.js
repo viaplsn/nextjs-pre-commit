@@ -1,17 +1,20 @@
 const path = require("path");
 
+const buildTypescriptCommand = (filenames) =>
+  `prettier --write ${filenames.join(" ")}`;
+
 const buildEslintCommand = (filenames) =>
   `next lint --fix --file ${filenames
     .map((f) => path.relative(process.cwd(), f))
     .join(" --file ")}`;
 
-const prettierWriteCommand = (filenames) =>
+const buildPrettierCommand = (filenames) =>
   `prettier --write ${filenames.join(" ")}`;
 
 module.exports = {
   "**/*.{js,jsx,ts,tsx}": [
+    buildTypescriptCommand,
     buildEslintCommand,
-    () => "tsc --noEmit",
-    prettierWriteCommand,
+    buildPrettierCommand,
   ],
 };
