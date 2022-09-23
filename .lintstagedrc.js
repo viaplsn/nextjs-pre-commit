@@ -1,7 +1,6 @@
 const path = require("path");
 
-const buildTypescriptCommand = (filenames) =>
-  `prettier --write ${filenames.join(" ")}`;
+const buildTypescriptCommand = () => `tsc --noEmit`;
 
 const buildEslintCommand = (filenames) =>
   `next lint --fix --file ${filenames
