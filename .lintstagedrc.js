@@ -1,6 +1,6 @@
 const path = require("path");
 
-const buildTypescriptCommand = () => `tsc --noEmit`;
+const buildTypescriptCommand = () => `npm run tsc`;
 
 const buildEslintCommand = (filenames) =>
   `next lint --fix --file ${filenames

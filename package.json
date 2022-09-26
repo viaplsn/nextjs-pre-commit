@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write .",
+    "tsc": "tsc --noEmit",
     "lint-staged": "lint-staged",
+    "prettier": "prettier --write .",
     "prepare": "husky install"
   },
   "dependencies": {
