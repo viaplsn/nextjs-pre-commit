@@ -7,8 +7,7 @@ const buildEslintCommand = (filenames) =>
     .map((f) => path.relative(process.cwd(), f))
     .join(" --file ")}`;
 
-const buildPrettierCommand = (filenames) =>
-  `yarn prettier --write ${filenames.join(" ")}`;
+const buildPrettierCommand = () => `npm run prettier`;
 
 module.exports = {
   "**/*.{js,jsx,ts,tsx}": [
